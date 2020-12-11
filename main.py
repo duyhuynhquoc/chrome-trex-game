@@ -1,4 +1,5 @@
 import pygame
+import random
 
 from config import *
 from colors import *
@@ -6,6 +7,10 @@ from Dinosaur import *
 from Ground import *
 from Cloud import *
 from Background import *
+from Obstacle import *
+from SmallCactus import *
+from LargeCactus import *
+from Bird import *
 
 pygame.init()
 
@@ -61,6 +66,7 @@ def Score():
     SCREEN.blit(text, textRect)
 
 def main():
+    global gameSpeed
 
     gameExit = False
     clock = pygame.time.Clock()
@@ -79,6 +85,20 @@ def main():
         
         sprites.draw(SCREEN)
         sprites.update()
+
+        if len(obstacles) == 0:
+            if random.randint(0, 2) == 0:
+                obstacles.append(SmallCactus(CACTUS_SMALL, gameSpeed))
+            elif random.randint(0, 2) == 1:
+                obstacles.append(LargeCactus(CACTUS_LARGE, gameSpeed))
+            elif random.randint(0, 2) == 2:
+                obstacles.append(Bird(BIRD, gameSpeed))
+
+        for obstacle in obstacles:
+            obstacle.draw(SCREEN)
+            obstacle.update()
+            if dino.rect.colliderect(obstacle.rect):
+                gameExit = True
 
         Background()
 

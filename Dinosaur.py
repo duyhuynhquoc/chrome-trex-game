@@ -4,7 +4,7 @@ from VisibleObject import *
 from sprites import *
 
 class Dinosaur(VisibleObject):
-    POSITION = Vector2(80, 100)
+    POSITION = Vector2(80, 300)
     POSITION_DUCKING = Vector2(80, 134)
     
     def __init__(self, ground):

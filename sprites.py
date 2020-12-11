@@ -37,4 +37,4 @@ BIRD = [
 CLOUD = pygame.image.load(os.path.join('Assets/Other', 'Cloud.png'))
 
 # BACKGROUND SPRTIE
-BG = pygame.image.load(os.path.join('Assets/Other', 'Track.png'))
+BACKGROUND = pygame.image.load(os.path.join('Assets/Other', 'Track.png'))

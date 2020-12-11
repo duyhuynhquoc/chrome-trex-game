@@ -4,12 +4,12 @@ from VisibleObject import *
 from colors import *
 
 class Ground(VisibleObject):
-    POSITION = Vector2(0, 410)
+    POSITION = Vector2(0, 500)
 
     def __init__(self):
         # Call Update method from base class
         image = pygame.Surface((1100, 100))
-        image.fill(BLUE)
+        image.fill(WHITE)
         super().__init__(image)
         
         self.rect.x = self.POSITION.x
